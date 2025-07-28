@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ekler Zamanı - Tatlı & Tuzlu Lezzetlerin Adresi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
-        
+        /* Reset ve Temel Stiller */
         * {
             margin: 0;
             padding: 0;
@@ -18,39 +18,44 @@
             line-height: 1.6;
             color: #2c2c2c;
             background: #faf9f7;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Başlık Stilleri */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #8B4513, #D2691E);
-            border-radius: 4px;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c1810 50%, #8B4513 100%);
+            background: linear-gradient(135deg, #1a1a1a, #8B4513);
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.4);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            z-index: 100;
         }
 
         .header-content {
@@ -61,20 +66,9 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            animation: logoGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes logoGlow {
-            0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
-            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); }
+            color: #FFD700;
         }
 
         nav ul {
@@ -86,131 +80,66 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        nav a:hover::before {
-            left: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.3s ease;
         }
 
         nav a:hover {
             background: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Hero Section */
+        /* Hero Bölümü */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(139, 69, 19, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="grain" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23f4e4bc;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23d4a574;stop-opacity:0.2"/></radialGradient></defs><rect width="1200" height="800" fill="url(%23grain)"/><circle cx="200" cy="150" r="3" fill="%23fff" opacity="0.1"/><circle cx="800" cy="300" r="2" fill="%23fff" opacity="0.15"/><circle cx="400" cy="600" r="4" fill="%23fff" opacity="0.08"/></svg>');
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(139, 69, 19, 0.9));
             color: white;
             text-align: center;
-            padding: 8rem 0;
-            position: relative;
-            overflow: hidden;
-            min-height: 90vh;
+            padding: 6rem 0;
+            min-height: 70vh;
             display: flex;
             align-items: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z" fill="rgba(255,215,0,0.05)"/><path d="M0,500 Q400,300 800,500 T1200,500 L1200,800 L0,800 Z" fill="rgba(255,140,0,0.03)"/></svg>') no-repeat center bottom;
-            background-size: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInDown 1s ease-out;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
         }
 
         .hero-subtitle {
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             color: #f0f0f0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: slideInUp 1s ease-out 0.3s both;
         }
 
         .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: #e0e0e0;
-            max-width: 600px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            animation: slideInUp 1s ease-out 0.6s both;
-        }
-
-        @keyframes slideInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: slideInUp 1s ease-out 0.9s both;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
         .cta-primary {
-            background: linear-gradient(45deg, #FF6B35, #F7931E, #FFD700);
+            background: linear-gradient(45deg, #FF6B35, #FFD700);
             color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
         }
 
         .cta-secondary {
@@ -220,8 +149,7 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
+            transform: translateY(-2px);
         }
 
         .cta-secondary:hover {
@@ -229,123 +157,70 @@
             color: #1a1a1a;
         }
 
-        /* Products Section */
+        /* Ürünler Bölümü */
         .products {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #fff 0%, #faf9f7 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #8B4513;
-            position: relative;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(45deg, #FF6B35, #F7931E, #FFD700);
-            margin: 1.5rem auto;
-            border-radius: 2px;
+            padding: 4rem 0;
+            background: white;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
             background: white;
-            border-radius: 25px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .product-image {
-            height: 250px;
-            background: linear-gradient(135deg, #f4e4bc 0%, #d4a574 100%);
+            height: 200px;
+            background: linear-gradient(135deg, #f4e4bc, #d4a574);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            font-size: 4rem;
         }
 
         .product-content {
-            padding: 2.5rem;
+            padding: 2rem;
         }
 
         .product-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #8B4513;
-        }
-
-        .product-card p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
         }
 
         .product-price {
             font-weight: 600;
             color: #FF6B35;
-            font-size: 1.1rem;
         }
 
-        /* Gallery Section */
+        /* Galeri Bölümü */
         .gallery {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #2c1810 0%, #1a1a1a 100%);
+            padding: 4rem 0;
+            background: #2c1810;
             color: white;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .gallery-item {
-            height: 300px;
-            border-radius: 20px;
+            height: 250px;
+            border-radius: 15px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -353,32 +228,15 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
-        .gallery-item1 {
-            background: linear-gradient(135deg, rgba(210, 180, 140, 0.9), rgba(160, 82, 45, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="%23D2B48C"/><circle cx="100" cy="100" r="40" fill="%23F4A460" opacity="0.7"/><circle cx="200" cy="200" r="30" fill="%23CD853F" opacity="0.8"/><ellipse cx="150" cy="150" rx="60" ry="40" fill="%23DEB887" opacity="0.6"/></svg>');
-            background-size: cover;
-        }
-
-        .gallery-item2 {
-            background: linear-gradient(135deg, rgba(255, 228, 196, 0.9), rgba(210, 180, 140, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="%23FFE4C4"/><rect x="50" y="200" width="200" height="80" rx="10" fill="%23F5DEB3" opacity="0.8"/><circle cx="150" cy="100" r="50" fill="%23DDD" opacity="0.7"/><rect x="100" y="120" width="100" height="20" rx="10" fill="%23CD853F" opacity="0.9"/></svg>');
-            background-size: cover;
-        }
-
-        .gallery-item3 {
-            background: linear-gradient(135deg, rgba(255, 218, 185, 0.9), rgba(222, 184, 135, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="%23FFDAB9"/><circle cx="75" cy="75" r="25" fill="%23D2B48C" opacity="0.8"/><circle cx="225" cy="75" r="25" fill="%23D2B48C" opacity="0.8"/><circle cx="75" cy="225" r="25" fill="%23D2B48C" opacity="0.8"/><circle cx="225" cy="225" r="25" fill="%23D2B48C" opacity="0.8"/><circle cx="150" cy="150" r="35" fill="%23CD853F" opacity="0.7"/></svg>');
-            background-size: cover;
-        }
-
-        .gallery-item4 {
-            background: linear-gradient(135deg, rgba(255, 239, 213, 0.9), rgba(250, 235, 215, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="%23FFEFD5"/><path d="M50,150 Q150,50 250,150 Q150,250 50,150" fill="%23DEB887" opacity="0.6"/><circle cx="150" cy="150" r="20" fill="%238B4513" opacity="0.8"/></svg>');
-            background-size: cover;
-        }
+        /* Farklı galeri öğeleri için arka planlar */
+        .gallery-item:nth-child(1) { background: linear-gradient(135deg, #D2B48C, #CD853F); }
+        .gallery-item:nth-child(2) { background: linear-gradient(135deg, #FFE4C4, #F5DEB3); }
+        .gallery-item:nth-child(3) { background: linear-gradient(135deg, #FFDAB9, #DEB887); }
+        .gallery-item:nth-child(4) { background: linear-gradient(135deg, #FFEFD5, #FAF0E6); }
+        .gallery-item:nth-child(5) { background: linear-gradient(135deg, #F4A460, #D2B48C); }
 
         .gallery-overlay {
             position: absolute;
@@ -404,67 +262,51 @@
         }
 
         .gallery-text h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        /* Features Section */
+        /* Özellikler Bölümü */
         .features {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            padding: 4rem 0;
+            background: #f5f3f0;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 2rem;
         }
 
         .feature {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2rem;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #FF6B35, #F7931E, #FFD700);
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
         }
 
         .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
             display: block;
+            margin-bottom: 1rem;
         }
 
         .feature h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #8B4513;
         }
 
-        /* Contact Section */
+        /* İletişim Bölümü */
         .contact {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c1810 50%, #8B4513 100%);
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1a1a1a, #8B4513);
             color: white;
             text-align: center;
         }
@@ -472,49 +314,40 @@
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .contact-item {
-            padding: 3rem 2rem;
+            padding: 2rem;
             background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            transition: background 0.3s ease;
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
             background: rgba(255,255,255,0.15);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
         .contact-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #FFD700;
         }
 
         .instagram-link {
             display: inline-block;
-            margin-top: 3rem;
-            padding: 1.5rem 3rem;
-            background: linear-gradient(45deg, #E4405F, #F56040, #FFDC80);
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #E4405F, #F56040);
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(228, 64, 95, 0.4);
+            transition: transform 0.3s ease;
         }
 
         .instagram-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(228, 64, 95, 0.6);
+            transform: translateY(-2px);
         }
 
         /* Footer */
@@ -522,23 +355,10 @@
             background: #0a0a0a;
             color: #aaa;
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Responsive */
+        /* Responsive Tasarım */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -546,24 +366,15 @@
             }
 
             .logo {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .section-title {
                 font-size: 2.5rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .section-title {
+                font-size: 2rem;
             }
 
             nav ul {
@@ -572,8 +383,9 @@
                 gap: 1rem;
             }
 
-            .product-grid {
-                grid-template-columns: 1fr;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
             .gallery-grid {
@@ -587,56 +399,17 @@
             }
         }
 
-        /* Animations */
+        /* Basit Animasyonlar */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .floating-element:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating-element:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-        .floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
     </style>
 </head>
 <body>
@@ -658,14 +431,11 @@
     </header>
 
     <section class="hero" id="anasayfa">
-        <div class="floating-element">🥐</div>
-        <div class="floating-element">🍰</div>
-        <div class="floating-element">🍪</div>
         <div class="container">
             <div class="hero-content">
                 <h1>Tatlı & Tuzlu Lezzetlerin Adresi!</h1>
                 <p class="hero-subtitle">@ekler_zamani</p>
-                <p class="hero-description">Eklerden pastaya, kurabiyeden poğaçaya... Her lokmada ev yapımı tazelik ve lezzet! Özel günler, doğum günleri, toplantılar için ideal tatlılar!</p>
+                <p class="hero-description">Eklerden pastaya, kurabiyeden poğaçaya... Her lokmada ev yapımı tazelik ve lezzet!</p>
                 <div class="cta-buttons">
                     <a href="#iletisim" class="cta-button cta-primary">📱 Sipariş Ver</a>
                     <a href="#galeri" class="cta-button cta-secondary">🖼️ Galeriyi İncele</a>
@@ -683,7 +453,7 @@
                     <div class="product-image">🥐</div>
                     <div class="product-content">
                         <h3>Tuzlu Lezzetler</h3>
-                        <p>Çıtır çıtır poğaçalarımız, nefis böreklerimiz ve taze sandviçlerimizle kahvaltı ve ara öğünlerinizi şenlendirin. Her sabah taze hazırlanır.</p>
+                        <p>Çıtır çıtır poğaçalarımız, nefis böreklerimiz ve taze sandviçlerimizle kahvaltı ve ara öğünlerinizi şenlendirin.</p>
                         <div class="product-price">Günlük Taze Üretim</div>
                     </div>
                 </div>
@@ -691,7 +461,7 @@
                     <div class="product-image">🍰</div>
                     <div class="product-content">
                         <h3>Özel Pastalar</h3>
-                        <p>Doğum günleri, özel günler ve kutlamalarınız için özenle tasarladığımız pastalar. Her yaş ve zevke uygun özel tasarımlar yapıyoruz.</p>
+                        <p>Doğum günleri ve özel günleriniz için özenle tasarladığımız pastalar. Her yaş ve zevke uygun özel tasarımlar.</p>
                         <div class="product-price">Özel Sipariş</div>
                     </div>
                 </div>
@@ -699,7 +469,7 @@
                     <div class="product-image">🍪</div>
                     <div class="product-content">
                         <h3>El Yapımı Kurabiyeler</h3>
-                        <p>Çay saatlerinizin vazgeçilmezi çıtır çıtır kurabiyelerimiz. Çeşitli tatlar ve şekillerde, tamamen el yapımı özenle hazırlanır.</p>
+                        <p>Çay saatlerinizin vazgeçilmezi çıtır çıtır kurabiyelerimiz. Çeşitli tatlar ve şekillerde, tamamen el yapımı.</p>
                         <div class="product-price">Çeşitli Tatlar</div>
                     </div>
                 </div>
@@ -707,7 +477,7 @@
                     <div class="product-image">🍩</div>
                     <div class="product-content">
                         <h3>Spesiyalitemiz: Ekler</h3>
-                        <p>Adımızın da geldiği spesiyalitemiz ekler ve profiteroller. Çikolatalı, kremalı, meyveli seçeneklerle damak zevkinize hitap eder.</p>
+                        <p>Adımızın da geldiği spesiyalitemiz ekler ve profiteroller. Çikolatalı, kremalı, meyveli seçeneklerle.</p>
                         <div class="product-price">Özel Tarif</div>
                     </div>
                 </div>
@@ -718,11 +488,9 @@
     <section class="gallery" id="galeri">
         <div class="container">
             <h2 class="section-title fade-in">Lezzetlerimizden Kareler</h2>
-            <p class="section-subtitle fade-in">Instagram hesabımızdan en beğenilen lezzetlerimiz
-                Görüntülere Instagram hesabımızdan ulaşabilirsiniz
-            </p>
+            <p class="section-subtitle fade-in">Instagram hesabımızdan en beğenilen lezzetlerimiz</p>
             <div class="gallery-grid">
-                <div class="gallery-item gallery-item1 fade-in">
+                <div class="gallery-item fade-in">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
                             <h4>Tuzlu Poğaçalar</h4>
@@ -730,7 +498,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item2 fade-in">
+                <div class="gallery-item fade-in">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
                             <h4>Özel Pastalar</h4>
@@ -738,7 +506,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item3 fade-in">
+                <div class="gallery-item fade-in">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
                             <h4>Kurabiyeler</h4>
@@ -746,15 +514,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item gallery-item4 fade-in">
+                <div class="gallery-item fade-in">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
                             <h4>Spesiyalimiz Ekler</h4>
                             <p>Kremalı lezzet</p>
                         </div>
                     </div>
-                
-                <div class="gallery-item gallery-item2 fade-in">
+                </div>
+                <div class="gallery-item fade-in">
                     <div class="gallery-overlay">
                         <div class="gallery-text">
                             <h4>Özel Tasarım</h4>
@@ -771,35 +539,20 @@
             <h2 class="section-title fade-in">Neden Ekler Zamanı?</h2>
             <p class="section-subtitle fade-in">Bizi özel kılan değerlerimiz ve hizmet anlayışımız</p>
             <div class="features-grid">
-                <div class="feature fade-in slide-in-left">
+                <div class="feature fade-in">
                     <span class="feature-icon">✨</span>
                     <h3>Özel Günler İçin İdeal</h3>
-                    <p>Doğum günleri, kutlamalar ve özel anlarınız için özenle hazırladığımız lezzetler. Her organizasyona uygun çözümler sunuyoruz.</p>
+                    <p>Doğum günleri, kutlamalar ve özel anlarınız için özenle hazırladığımız lezzetler.</p>
                 </div>
                 <div class="feature fade-in">
                     <span class="feature-icon">🏠</span>
                     <h3>Ev Yapımı Tazelik</h3>
-                    <p>Tüm ürünlerimiz ev ortamında, hijyenik şartlarda ve günlük olarak taze hazırlanır. Kalite ve lezzetten ödün vermiyoruz.</p>
-                </div>
-                <div class="feature fade-in slide-in-right">
-                    <span class="feature-icon">📱</span>
-                    <h3>Kolay Sipariş Sistemi</h3>
-                    <p>Instagram DM üzerinden kolayca sipariş verebilir, özel isteklerinizi iletebilirsiniz. Siparişler sadece DM'den alınır.</p>
-                </div>
-                <div class="feature fade-in slide-in-left">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Hızlı Hazırlık</h3>
-                    <p>Siparişlerinizi mümkün olan en kısa sürede hazırlayıp teslim ediyoruz. Acil siparişler için önceden haber verin.</p>
+                    <p>Tüm ürünlerimiz ev ortamında, hijyenik şartlarda ve günlük olarak taze hazırlanır.</p>
                 </div>
                 <div class="feature fade-in">
-                    <span class="feature-icon">🎂</span>
-                    <h3>Özel Tasarımlar</h3>
-                    <p>Toplantılar, etkinlikler ve özel günler için kişiye özel tasarımlar yapıyoruz. Hayalinizdeki tatlıyı gerçeğe dönüştürüyoruz.</p>
-                </div>
-                <div class="feature fade-in slide-in-right">
-                    <span class="feature-icon">💝</span>
-                    <h3>Kaliteli Malzemeler</h3>
-                    <p>Sadece en kaliteli ve taze malzemeleri kullanıyoruz. Her lokmada farkı hissedecek, ev yapımı lezzeti tadacaksınız.</p>
+                    <span class="feature-icon">📱</span>
+                    <h3>Kolay Sipariş Sistemi</h3>
+                    <p>Instagram DM üzerinden kolayca sipariş verebilir, özel isteklerinizi iletebilirsiniz.</p>
                 </div>
             </div>
         </div>
@@ -814,6 +567,7 @@
                     <h3>📱 Sipariş Hattı</h3>
                     <p>Instagram DM üzerinden 7/24 sipariş alıyoruz</p>
                     <p><strong>Hızlı ve kolay sipariş</strong></p>
+                </div>
                 <div class="contact-item fade-in">
                     <h3>🎂 Özel Siparişler</h3>
                     <p>Özel günleriniz için en az 2 gün önceden haber verin</p>
@@ -828,41 +582,12 @@
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Ekler Zamanı</h4>
-                    <p>Tatlı ve tuzlu lezzetlerin özel adresi. Ev yapımı tazelik ve kaliteli hizmet.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Hızlı Linkler</h4>
-                    <p>Ana Sayfa • Ürünler • Galeri • İletişim</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Sosyal Medya</h4>
-                    <p>Instagram: @ekler_zamani</p>
-                </div>
-            </div>
-            <hr style="border: 1px solid #333; margin: 2rem 0;">
-            <p>&copy; 2025 Ekler Zamanı. Tüm hakları saklıdır. 🍰 Made with love in Turkey</p>
+            <p>&copy; 2025 Ekler Zamanı. Tüm hakları saklıdır. 🍰</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enhanced scroll animations
+        // Basit scroll animasyonu
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -876,105 +601,23 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Enhanced product card interactions
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-                this.style.boxShadow = '0 25px 50px rgba(0,0,0,0.2)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.08)';
-            });
-        });
-
-        // Gallery item interactions
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Add click animation
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 100);
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+        // Yumuşak kaydırma
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
-
-        // Dynamic hero text animation
-        const heroTitle = document.querySelector('.hero h1');
-        
-        setInterval(() => {
-            heroTitle.style.transform = 'scale(1.02)';
-            setTimeout(() => {
-                heroTitle.style.transform = 'scale(1)';
-            }, 300);
-        }, 5000);
-
-        // Floating elements animation enhancement
-        document.querySelectorAll('.floating-element').forEach((element, index) => {
-            element.style.animationDelay = `${index * 2}s`;
-            element.style.fontSize = `${3 + Math.random() * 2}rem`;
-        });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Add typing effect to hero subtitle
-        const subtitle = document.querySelector('.hero-subtitle');
-        if (subtitle) {
-            const text = subtitle.textContent;
-            subtitle.textContent = '';
-            
-            setTimeout(() => {
-                let i = 0;
-                const typeWriter = () => {
-                    if (i < text.length) {
-                        subtitle.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 100);
-                    }
-                };
-                typeWriter();
-            }, 1500);
-        }
-
-        // Instagram link pulse effect
-        const instagramLink = document.querySelector('.instagram-link');
-        if (instagramLink) {
-            setInterval(() => {
-                instagramLink.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    instagramLink.style.transform = 'scale(1)';
-                }, 500);
-            }, 3000);
-        }
-        
     </script>
 </body>
 </html>
